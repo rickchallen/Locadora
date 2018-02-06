@@ -1,12 +1,17 @@
 <?php
 class Conexao {
 
-    private $conexao = new PDO("mysql:host=localhost;dbname=locadora","root","130490");
+    private $conexao ="";
     
-
-
-    public function getConexao(){
-        return $this->$conexao->exec("set names utf8");
+    private function conect():PDO{
+        try{
+           $conexao = new PDO("mysql:host=localhost;dbname=locadora;","root","130490");
+           $conexao->exec("set names utf8");
+           return $conexao;
+        }catch(PDOException $e){
+            echo "Erro: ".$e->getMessage();
+            exit();       
+        }
     }
 }
 ?>
