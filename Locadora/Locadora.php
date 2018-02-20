@@ -6,7 +6,7 @@ include_once("Usuario.php");
 include_once("Cd.php");
 include_once("Dvd.php");
 include_once("Bluray.php");
-
+include_once("Conexao.php");
 
 
 class Locadora{
@@ -84,6 +84,7 @@ class Locadora{
         $this->setCd($cd);
         $this->setDvd($dvd);
         $this->setBluray($bluray);
+        $this->setLocacao($locacao);
     }
     
    
@@ -95,6 +96,23 @@ class Locadora{
     }
     
     public function listarUsuario(){
+        
+        $objConect = new Conexao();
+        $pre = $objConect->connect();
+        $stmt = $pre->prepare("select * from pessoa");
+        if($stmt->execute()){
+            
+            while($rs = $stmt->fetch(PDO::FETCH_OBJ)){
+                echo "<tr>";
+                echo "<td>".$rs->NOME."</td>";
+                echo "<td>".$rs->TELEFONE."</td>";
+                echo "<td>".$rs->ENDERECO."</td>";
+                echo "<td>".$rs->QTD_LOCADO."</td>";
+                echo "<td>".$rs->TIPO."</td>";
+                echo "<tr>";
+            }
+            
+        }
         
     }
     
