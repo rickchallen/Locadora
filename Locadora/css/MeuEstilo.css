@@ -1,0 +1,26 @@
+input.tamanho{
+        width: 350px;    
+}
+
+fieldset{
+    border-radius: 2px;
+    border: none;
+    /*background-color:#f1f1f1; */ 
+    width: 350px;
+}
+
+div.padrao{
+    /*background-color:#f1f1f1; */
+}
+
+.icone{
+    background-image: url("../imagens/icone.png");
+    width: 200px;
+    height: 200px;
+    background-position: inherit;
+}
+
+body.imagem{
+    background-image: url("../imagens/desempenho.jpg");
+    
+}
